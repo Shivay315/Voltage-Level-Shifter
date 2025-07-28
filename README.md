@@ -6,7 +6,7 @@ This project demonstrates the design and verification of a **Voltage Level Shift
 
 ## Abstract
 
-In modern mixed-signal and low-power VLSI systems, interfacing between modules operating at different voltage levels is critical. A **Voltage Level Shifter (VLS)** is designed to safely translate logic signals between two voltage domains (e.g., from 1.2V to 3.3V or vice versa), ensuring signal integrity and preventing device damage.
+In modern mixed-signal and low-power VLSI systems, interfacing between modules operating at different voltage levels is critical. A **Voltage Level Shifter (VLS)** is designed to safely translate logic signals between two voltage domains (e.g., from 3.3V to 5V or vice versa), ensuring signal integrity and preventing device damage.
 
 This project covers the complete process of designing a voltage level shifter in Cadence Virtuoso, including schematic creation, layout design, and post-layout simulation. The performance of the design is validated using testbenches and waveform analysis to confirm accurate level shifting under various conditions.
 
@@ -26,7 +26,7 @@ The voltage level shifter generally uses:
 - **Cross-coupled PMOS pairs** for pull-up functionality.
 - **Enable transistors** or biasing mechanisms to ensure correct operation during transitions.
 
-This ensures that the output signal switches fully between 0 and the desired higher voltage (e.g., 3.3V), even if the input only reaches 1.2V.
+This ensures that the output signal switches fully between 0 and 5V, even if the input only reaches 3.3V.
 
 In this project:
 - A basic **CMOS inverter** is used as a reference.
@@ -39,9 +39,9 @@ In this project:
 ## Discussion
 
 ### Design Choices
-- **Technology**: Standard CMOS 180nm (or your used tech node)
-- **Supply Voltages**: V<sub>DD</sub>₁ = 1.2V (input domain), V<sub>DD</sub>₂ = 3.3V (output domain)
-- **Testbench**: Applied square wave input at 1.2V logic to test correct translation to 3.3V logic.
+- **Technology**: Standard CMOS 120nm
+- **Supply Voltages**: V<sub>DD</sub>₁ = 13.3V (input domain), V<sub>DD</sub>₂ = 5V (output domain)
+- **Testbench**: Applied square wave input at 3.3V logic to test correct translation to 5V logic.
 
 ### Observations
 - The output waveform follows the input logic pattern with clean transitions.
